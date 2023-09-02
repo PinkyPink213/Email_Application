@@ -4,12 +4,15 @@ public class Email {
     private String firstName;
     private String lastName;
     private String department;
-    private String company;
+    private String company = "ABC";
     private String password;
+    private String email;
+    private int emailCapacity;
     public Email(String firstName,String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("Email Created: "+ this.firstName+' '+this.lastName);
+        System.out.println("Email have been create.");
+        System.out.println("For "+ this.firstName+" "+ this.lastName+" From Company "+ this.company);
         this.department = setDepartment();
         System.out.println("Your department is: " + this.department);
         System.out.println("We will generate password ...");
