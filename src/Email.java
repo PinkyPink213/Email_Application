@@ -8,8 +8,9 @@ public class Email {
     private String password;
     private String email;
     private String status = "check";
-    private int emailCapacity;
-    private  
+    private int emailCapacity = 500;
+    private String alernativetEmail;
+   
     public Email(String firstName,String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -57,5 +58,32 @@ public class Email {
             password[i]=passwordSet.charAt(rand);
         }
         return new String(password);  
+    }
+
+    public void setEmailCapacity(int capacity){
+        this.emailCapacity = capacity;
+        System.out.println("Email Capacity: "+ this.emailCapacity);
+    }
+    
+    public void setAlternativeEmail(String altEmail){
+        this.alernativetEmail = altEmail;
+        System.out.println("Alternative Email: "+ this.alernativetEmail);
+    }
+
+    public void changePassword(String password){
+        this.password = password;
+        System.out.println("Your new password is "+ this.password);
+    }
+
+    public int getEmailCapacity(){
+        return emailCapacity;
+    }
+
+    public String getAlernativetEmail(){
+        return alernativetEmail;
+    }
+
+    public String getPassword(){
+        return password;
     }
 }
