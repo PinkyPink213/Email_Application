@@ -12,6 +12,9 @@ public class Email {
         System.out.println("Email Created: "+ this.firstName+' '+this.lastName);
         this.department = setDepartment();
         System.out.println("Your department is: " + this.department);
+        System.out.println("We will generate password ...");
+        this.password = generatePassword(8);
+        System.out.println("Your password is: "+ this.password);
     }
     private String setDepartment(){
         System.out.println("Department CODE: \n Sales : 01 \n Development: 02 \n Accounting: 03");
@@ -22,5 +25,16 @@ public class Email {
         else if (departmentCode == 02){return "Development";}
         else if (departmentCode == 03){return "Accounting";}
         else  { return "Wrong Code";}
+    }
+
+    private String generatePassword(int length){
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ)0123456789!@#$%";
+        char[] password = new char[length];
+        for (int i =0; i<length;i++){
+            int rand = (int)(Math.random()*passwordSet.length());
+            password[i]=passwordSet.charAt(rand);
+        }
+        return new String(password);
+        
     }
 }
