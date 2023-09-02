@@ -7,6 +7,7 @@ public class Email {
     private String company = "ABC";
     private String password;
     private String email;
+    private String status = "check";
     private int emailCapacity;
     public Email(String firstName,String lastName){
         this.firstName = firstName;
@@ -21,13 +22,29 @@ public class Email {
     }
     private String setDepartment(){
         System.out.println("Department CODE: \n Sales : 01 \n Development: 02 \n Accounting: 03");
-        System.out.print("Your department code is: ");
-        Scanner departmentInfo = new Scanner(System.in);
-        int departmentCode = departmentInfo.nextInt();
-        if (departmentCode == 01) {return "Sales";} 
-        else if (departmentCode == 02){return "Development";}
-        else if (departmentCode == 03){return "Accounting";}
-        else  { return "Wrong Code";}
+        while (this.status == "check"){
+            System.out.print("Your department code is: ");
+            Scanner departmentInfo = new Scanner(System.in);
+            int departmentCode = departmentInfo.nextInt();
+            if (departmentCode == 01) {
+                this.status = "pass";
+                this.department =  "Sales";
+            } 
+            else if (departmentCode == 02){
+                this.status = "pass";
+                this.department = "Development";
+            }
+            else if (departmentCode == 03){
+                this.status = "pass";
+                this.department ="Accounting";
+            }
+            else  {
+                System.err.println("The department code is wrong, please type again.");
+            }
+        }
+        return this.department;
+        
+        
     }
 
     private String generatePassword(int length){
