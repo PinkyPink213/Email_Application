@@ -9,6 +9,7 @@ public class Email {
     private String email;
     private String status = "check";
     private int emailCapacity;
+    private  
     public Email(String firstName,String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,6 +20,8 @@ public class Email {
         System.out.println("We will generate password ...");
         this.password = generatePassword(8);
         System.out.println("Your password is: "+ this.password);
+        this.email = this.firstName+"."+this.lastName+"@"+this.department+"."+this.company+".com";
+        System.out.println("Your Email is: "+ this.email.toLowerCase());
     }
     private String setDepartment(){
         System.out.println("Department CODE: \n Sales : 01 \n Development: 02 \n Accounting: 03");
@@ -44,7 +47,6 @@ public class Email {
         }
         return this.department;
         
-        
     }
 
     private String generatePassword(int length){
@@ -54,7 +56,6 @@ public class Email {
             int rand = (int)(Math.random()*passwordSet.length());
             password[i]=passwordSet.charAt(rand);
         }
-        return new String(password);
-        
+        return new String(password);  
     }
 }
